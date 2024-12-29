@@ -8,6 +8,12 @@ function App() {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
 
+
+  // const url = process.env.API_URL;
+  // console.log(url);
+  
+  // fetch(url);
+
   function handleSubmit(){
   }
 
@@ -46,7 +52,7 @@ function App() {
       <div className="transaction">
         <div className="left">
           <div className="name">Stipend</div>
-          <div className="desc">From the webdev internship</div>
+          <div className="desc">From my imaginary internship</div>
         </div>
         <div className="right">
           <div className="price green">+$200</div>
