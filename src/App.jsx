@@ -5,7 +5,6 @@ function App() {
 
   const [name, setName] = useState("");
   const [dateTime, setDateTime] = useState("");
-  const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
 
 
@@ -13,15 +12,6 @@ function App() {
     event.preventDefault();
     const url = import.meta.env.VITE_API_URL+'/transaction';
     console.log(url);
-    // fetch(url, {
-    //   method: 'POST',
-    //   headers: {'Content-type':'application/json'},
-    //   body: JSON.stringify({name, description, dateTime})
-    // }).then(res => {
-    //   res.json().then(json => {
-    //     console.log('result', result);   
-    //   });
-    // });
       try {
         const response = await fetch('url', {
           method: 'POST',
@@ -64,9 +54,7 @@ function App() {
           }}>I had money saved just for this</div>
         </div>
         <div className="right">
-          <div className="price red" value={price} onChange={(event)=>{
-            setPrice(event.target.value)
-          }}>-$600</div>
+          <div className="price red">-$600</div>
           <div className="datetime" value={dateTime} onChange={(event)=>{
             setDateTime(event.target.value)
           }}>17.12.2024 16.00</div>
