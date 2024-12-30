@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './App.css';
 
 function App() {
 
@@ -9,12 +9,35 @@ function App() {
   const [description, setDescription] = useState("");
 
 
-  // const url = process.env.API_URL;
-  // console.log(url);
-  
-  // fetch(url);
-
-  function handleSubmit(){
+  async function handleSubmit(event){
+    event.preventDefault();
+    const url = import.meta.env.VITE_API_URL+'/transaction';
+    console.log(url);
+    // fetch(url, {
+    //   method: 'POST',
+    //   headers: {'Content-type':'application/json'},
+    //   body: JSON.stringify({name, description, dateTime})
+    // }).then(res => {
+    //   res.json().then(json => {
+    //     console.log('result', result);   
+    //   });
+    // });
+      try {
+        const response = await fetch('url', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, description, dateTime }), 
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        console.log('result', result);
+      } catch (error) {
+        console.log(error); 
+      }
   }
 
   return (
