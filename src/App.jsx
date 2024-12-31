@@ -18,11 +18,8 @@ function App() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ name, description, dateTime }), 
+          body: JSON.stringify({ name, dateTime, description }), 
         });
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
         const result = await response.json();
         console.log('result', result);
       } catch (error) {
@@ -30,36 +27,34 @@ function App() {
       }
   }
 
-  //just for the commit
-
   return (
     <main>
       <h1>$400.00</h1>
       <form onSubmit={handleSubmit}>
         <div className="basics">
-        <input type="text" placeholder='$600 asus zenbook s16'/>
-        <input type="datetime-local" />
+        <input type="text" placeholder='$600 asus zenbook s16' value={name} onChange={(event)=>{
+            setName(event.target.value)
+          }}/>
+        <input type="datetime-local" value={dateTime} onChange={(event)=>{
+            setDateTime(event.target.value)
+          }}/>
         </div>
         <div className="description">
-        <input type="text" placeholder='description'/>
+        <input type="text" placeholder='description'  value={description} onChange={(event)=>{
+            setDescription(event.target.value)
+          }}/>
         </div>
         <button>Add Transaction</button>
       </form>
       <div className="transactions">
       <div className="transaction">
         <div className="left">
-          <div className="name" value={name} onChange={(event)=>{
-            setName(event.target.value)
-          }}>Asus Zenbook s16</div>
-          <div className="desc" value={description} onChange={(event)=>{
-            setDescription(event.target.value)
-          }}>I had money saved just for this</div>
+          <div className="name" >Asus Zenbook s16</div>
+          <div className="desc">I had money saved just for this</div>
         </div>
         <div className="right">
           <div className="price red">-$600</div>
-          <div className="datetime" value={dateTime} onChange={(event)=>{
-            setDateTime(event.target.value)
-          }}>17.12.2024 16.00</div>
+          <div className="datetime" >17.12.2024 16.00</div>
         </div>
       </div>
       <div className="transaction">
