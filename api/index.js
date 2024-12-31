@@ -10,7 +10,8 @@ app.get('/', (req, res)=>{
 })
 
 app.post('api/transaction', (req, res)=>{
-    res.json(req.body);
+    console.log(req.body)
+    // res.json(req.body);
 })
 
 app.listen(3000, ()=>{
