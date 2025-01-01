@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import React from "react";
 import './App.css';
 
 function App() {
@@ -13,13 +14,17 @@ function App() {
     const url = import.meta.env.VITE_API_URL+'/transaction';
     console.log(url);
       try {
-        const response = await fetch('url', {
+        const response = await fetch(url, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ name, dateTime, description }), 
         });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
         const result = await response.json();
         console.log('result', result);
       } catch (error) {
