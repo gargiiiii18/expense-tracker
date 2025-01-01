@@ -13,11 +13,12 @@ app.get('/', (req, res)=>{
     res.json("test");
 })
 
-app.post('/transaction', (req, res)=>{
-    console.log(process.env.MONGO_URL);
-    // mongoose.connect('');
-    const { name, dateTime, description } = req.body;
-    res.json(req.body);
+app.post('/transaction', async (req, res)=>{
+    // console.log(process.env.MONGO_URL);
+    await mongoose.connect(process.env.MONGO_URL);
+    const { name, price, dateTime, description } = req.body;
+    const transaction = await Transaction.create({name, price, dateTime, description});
+    res.json(transaction);
 })
 
 app.listen(3000, ()=>{
