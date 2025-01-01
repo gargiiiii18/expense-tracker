@@ -12,6 +12,7 @@ function App() {
   async function handleSubmit(event){
     event.preventDefault();
     const url = import.meta.env.VITE_API_URL+'/transaction';
+    const price = name.split(' ')[0];
     console.log(url);
       try {
         const response = await fetch(url, {
@@ -19,13 +20,21 @@ function App() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ name, dateTime, description }), 
+          body: JSON.stringify({ 
+            price,
+            name:name.substring(price.length+1),
+            // name,
+            dateTime,
+            description }), 
         });
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
         const result = await response.json();
+        setName('');
+        setDateTime('');
+        setDescription('');
         console.log('result', result);
       } catch (error) {
         console.log(error); 
