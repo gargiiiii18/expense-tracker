@@ -9,9 +9,8 @@ app.get('/', (req, res)=>{
     res.json("test");
 })
 
-app.post('api/transaction', (req, res)=>{
-    console.log(req.body)
-    // res.json(req.body);
+app.post('/transaction', (req, res)=>{
+    res.json(req.body);
 })
 
 app.listen(3000, ()=>{
