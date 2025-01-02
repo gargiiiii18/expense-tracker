@@ -20,6 +20,13 @@ h1{
     margin: 0;
 }
 
+h1 span{
+    font-size: 1rem;
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 3px;
+}
+
 form{
   margin-top: 20px;
 }
