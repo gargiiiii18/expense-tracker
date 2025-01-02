@@ -21,6 +21,12 @@ app.post('/transaction', async (req, res)=>{
     res.json(transaction);
 })
 
+app.get('/transactions', async (req, res) => {
+    await mongoose.connect(process.env.MONGO_URL);
+    const transactions = await Transaction.find();
+    res.json(transactions);   
+})
+
 app.listen(3000, ()=>{
     console.log("Listening on port 3000...");
 })
