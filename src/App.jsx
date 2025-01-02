@@ -68,7 +68,7 @@ function App() {
 
   return (
     <main>
-      <h1>${balance.split('.')[0]}<span> .{cents}</span></h1>
+      <h1>${balance.split('.')[0]} <span> .{cents}</span></h1>
       <form onSubmit={handleSubmit}>
         <div className="basics">
         <input type="text" placeholder='$600 asus zenbook s16' value={name} onChange={(event)=>{
@@ -100,27 +100,6 @@ function App() {
          </div>
           );
         })}
-     
-      {/* <div className="transaction">
-        <div className="left">
-          <div className="name">Stipend</div>
-          <div className="desc">From my imaginary internship</div>
-        </div>
-        <div className="right">
-          <div className="price green">+$200</div>
-          <div className="datetime">17.12.2024 16.00</div>
-        </div>
-      </div>
-      <div className="transaction">
-        <div className="left">
-          <div className="name">Samsung TV</div>
-          <div className="desc">I needed it!</div>
-        </div>
-        <div className="right">
-          <div className="price red">-$600</div>
-          <div className="datetime">17.12.2024 16.00</div>
-        </div>
-      </div> */}
       </div>
     </main>
   )
