@@ -71,7 +71,7 @@ function App() {
       <h1>${balance.split('.')[0]} <span> .{cents}</span></h1>
       <form onSubmit={handleSubmit}>
         <div className="basics">
-        <input type="text" placeholder='$600 asus zenbook s16' value={name} onChange={(event)=>{
+        <input type="text" placeholder='format example: $600 phone' value={name} onChange={(event)=>{
             setName(event.target.value)
           }}/>
         <input type="datetime-local" value={dateTime} onChange={(event)=>{
