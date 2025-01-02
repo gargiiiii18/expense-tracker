@@ -16,10 +16,10 @@ A simple and efficient **Expense Tracker** web application built using the **MER
 ![Home Page](https://github.com/gargiiiii18/expense-tracker/blob/main/webapp-screenshots/homepage.png?raw=true)
 
 ### Adding Transactions
-![Adding new transaction](https://github.com/gargiiiii18/expense-tracker/blob/main/webapp%20screenshots/addingTransaction.png?raw=true)
+![Adding new transaction](https://github.com/gargiiiii18/expense-tracker/blob/main/webapp-screenshots/addingTransaction.png?raw=true)
 
 ### Transaction List
-![After adding new treansaction](https://github.com/gargiiiii18/expense-tracker/blob/main/webapp%20screenshots/afterAdding.png?raw=true)
+![After adding new treansaction](https://github.com/gargiiiii18/expense-tracker/blob/main/webapp-screenshots/afterAdding.png?raw=true)
 
 ## Tech Stack
 
