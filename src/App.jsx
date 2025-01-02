@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import React from "react";
 import './App.css';
 
@@ -7,6 +7,22 @@ function App() {
   const [name, setName] = useState("");
   const [dateTime, setDateTime] = useState("");
   const [description, setDescription] = useState("");
+  const [transactions, setTransactions] = useState([]);
+
+  const fetchTransactions = async () => {
+    try {
+      const url = import.meta.env.VITE_API_URL+'/transactions';
+      const response = await fetch(url);
+      return await response.json();
+      // await setTransactions(transactions);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+   fetchTransactions().then(setTransactions);
+  }, [])
 
 
   async function handleSubmit(event){
@@ -37,13 +53,14 @@ function App() {
         setDescription('');
         console.log('result', result);
       } catch (error) {
+
         console.log(error); 
       }
   }
 
   return (
     <main>
-      <h1>$400.00</h1>
+      <h1>$400<span> .00</span></h1>
       <form onSubmit={handleSubmit}>
         <div className="basics">
         <input type="text" placeholder='$600 asus zenbook s16' value={name} onChange={(event)=>{
@@ -61,17 +78,22 @@ function App() {
         <button>Add Transaction</button>
       </form>
       <div className="transactions">
-      <div className="transaction">
-        <div className="left">
-          <div className="name" >Asus Zenbook s16</div>
-          <div className="desc">I had money saved just for this</div>
-        </div>
-        <div className="right">
-          <div className="price red">-$600</div>
-          <div className="datetime" >17.12.2024 16.00</div>
-        </div>
-      </div>
-      <div className="transaction">
+        {transactions.length>=0 && transactions.map(transaction => {
+          return(
+           <div className="transaction">
+           <div className="left">
+             <div className="name" >{transaction.name}</div>
+             <div className="desc">{transaction.description}</div>
+           </div>
+           <div className="right">
+             <div className={"price "+(transaction.price<0?"red":"green")}>{transaction.price}</div>
+             <div className="datetime" >{transaction.dateTime}</div>
+           </div>
+         </div>
+          );
+        })}
+     
+      {/* <div className="transaction">
         <div className="left">
           <div className="name">Stipend</div>
           <div className="desc">From my imaginary internship</div>
@@ -90,7 +112,7 @@ function App() {
           <div className="price red">-$600</div>
           <div className="datetime">17.12.2024 16.00</div>
         </div>
-      </div>
+      </div> */}
       </div>
     </main>
   )
