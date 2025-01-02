@@ -58,9 +58,16 @@ function App() {
       }
   }
 
+  let balance = 0;
+  transactions.forEach(transaction => {
+    balance = balance + transaction.price;
+  })
+  balance = balance.toFixed(2);
+  const cents = balance.split('.')[1];
+
   return (
     <main>
-      <h1>$400<span> .00</span></h1>
+      <h1>${balance.split('.')[0]}<span> .{cents}</span></h1>
       <form onSubmit={handleSubmit}>
         <div className="basics">
         <input type="text" placeholder='$600 asus zenbook s16' value={name} onChange={(event)=>{
@@ -78,7 +85,7 @@ function App() {
         <button>Add Transaction</button>
       </form>
       <div className="transactions">
-        {transactions.length>=0 && transactions.map(transaction => {
+        {transactions.map(transaction => {
           return(
            <div className="transaction">
            <div className="left">
