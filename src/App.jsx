@@ -52,6 +52,7 @@ function App() {
         setDateTime('');
         setDescription('');
         console.log('result', result);
+        setTransactions(prevTransactions => [...prevTransactions, result]);
       } catch (error) {
 
         console.log(error); 
