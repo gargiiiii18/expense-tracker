@@ -10,6 +10,17 @@ A simple and efficient **Expense Tracker** web application built using the **MER
 - Track your balance in real-time as you add transactions.
 - Responsive design for use on both desktop and mobile devices.
 
+## Screenshots
+
+### Home Page
+![Home Page]("D:\expense-tracker\webapp screenshots\homepage.png")
+
+### Transaction List
+![Adding new transaction]("D:\expense-tracker\webapp screenshots\addingTransaction.png")
+
+### Add Transaction Form
+![After adding new treansaction]("D:\expense-tracker\webapp screenshots\afterAdding.png")
+
 ## Tech Stack
 
 - **Frontend**: React.js
@@ -44,7 +55,7 @@ Create a `.env` file in the `backend` directory and add your MongoDB connection 
 MONGO_URL=your_mongodb_connection_url
 ```
 
-Create a `.env` file in the main project directory and the URL you want to run your backend on:
+Create a `.env` file in the main project directory and add the URL you want to run your backend on:
 
 For example:
 ```bash
