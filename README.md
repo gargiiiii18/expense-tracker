@@ -1,116 +1,83 @@
-Here's a basic template for your **MERN** project **README** file on GitHub:
 
----
+# Expense Tracker
 
-# MERN Project
-
-## Overview
-
-This is a full-stack application built with the **MERN** stack (MongoDB, Express, React, Node.js). The app allows users to perform various operations such as creating, reading, and updating data through a user-friendly interface. It integrates a MongoDB database with a Node.js backend, serving data to a React frontend.
+A simple and efficient **Expense Tracker** web application built using the **MERN stack** (MongoDB, Express, React, Node.js). This app helps you manage and track your expenses and income, allowing you to easily add and view transactions. It also calculates your current balance based on your incomes and expenses. This is my very first project using the MERN stack. It is responsive and provides good user experience. 
 
 ## Features
 
-- **User Authentication** (if applicable)
-- **CRUD Operations** (Create, Read, Update, Delete)
-- **Responsive Design** for mobile and desktop views
-- **Real-time updates** (if applicable)
-- **RESTful API** for data interaction
-- **MongoDB** for data storage
-- **Express** as the backend framework
-- **React** for the frontend
+- Add transactions with details like price, description, and date.
+- View all your transactions in a clean and organized list.
+- Track your balance in real-time as you add transactions.
+- Responsive design for use on both desktop and mobile devices.
+
+## Tech Stack
+
+- **Frontend**: React.js
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Styling**: CSS
 
 ## Installation
 
-To run this project locally, follow these steps:
+To run the project locally, follow these steps:
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/gargiiiii18/expense-tracker
 ```
 
-### 2. Install dependencies
+### 2. Install backend dependencies
 
-- Navigate to the project folder.
-
-#### Backend (Node/Express)
+Navigate to the `api` directory and install the dependencies:
 
 ```bash
 cd backend
-npm install
-```
-
-#### Frontend (React)
-
-```bash
-cd frontend
 npm install
 ```
 
 ### 3. Set up environment variables
 
-Create a `.env` file in the root of both **frontend** and **backend** directories, and add your environment variables (such as API URLs, database connection strings, etc.).
-
-Example for **backend**:
-
-```env
-MONGO_URL=your-mongodb-connection-string
-PORT=3000
-```
-
-Example for **frontend**:
-
-```env
-VITE_API_URL=http://localhost:3000
-```
-
-### 4. Run the application
-
-#### Backend
-
-Start the backend server:
+Create a `.env` file in the `backend` directory and add your MongoDB connection URL:
 
 ```bash
-cd backend
-npm start
+MONGO_URL=your_mongodb_connection_url
 ```
 
-#### Frontend
+Create a `.env` file in the main project directory and the URL you want to run your backend on:
 
-Start the frontend server:
+For example:
+```bash
+VITE_API_URL = 'http://localhost:3000'
+```
+
+### 4. Start the backend server
+
+Navigate to the api directory and run the following command to start the backend server:
 
 ```bash
-cd frontend
-npm start
+nodemon index.js
 ```
 
-The app should now be running at `http://localhost:3000`.
+### 5. Start the frontend server
+
+Run the following command in the main project directory to start the frontend server:
+
+```bash
+npm run dev
+```
 
 ## Usage
 
-- Navigate to the frontend in your browser.
-- Interact with the app by performing various actions (e.g., creating a new transaction, viewing transactions).
-- The frontend communicates with the backend via API requests, which are handled by Express and MongoDB.
-
-## Technologies Used
-
-- **Frontend**: React, Vite, HTML, CSS
-- **Backend**: Node.js, Express
-- **Database**: MongoDB
-- **Others**: Axios (or Fetch for API calls), dotenv for environment variable management
+- Add a new transaction by filling in the form with the price, description, and date.
+- View your transactions in a list and see your balance update in real-time.
 
 ## Contributing
 
-1. Fork the repository.
-2. Create your branch (`git checkout -b feature-name`).
-3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature-name`).
-5. Open a pull request.
+If you'd like to contribute to this project, feel free to fork the repository and create a pull request. Contributions are always welcome!
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-Feel free to customize the sections according to your app's specific features, installation steps, or any additional details you want to include.
